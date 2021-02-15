@@ -1,7 +1,14 @@
+import React, { useRef } from 'react'
 import logo from './logo.svg';
+
+import Art from './components/modal/modalArt.jpg'
+import ArtClick from './components/modal/modalClick.jpg'
+import Modal from './components/modal/Modal'
 import './App.css';
 
 function App() {
+const modal = useRef(null)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,7 +24,12 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={() => modal.current.open()}><img src={ArtClick} /></button>
       </header>
+     
+      <Modal ref={modal}>
+        <img src={Art} />
+      </Modal>
     </div>
   );
 }
